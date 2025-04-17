@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Abbey-Gayle Haughton | Website Portfolio">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="icon" type="image/jpeg" href="Logo2.jpeg">
+  <link rel="icon" type="image/jpeg" href="../Assets/Logo2.jpeg">
   <title>Checkout | VitalHealthHub</title>
 
   <style>
@@ -337,19 +337,19 @@
     <header class="header">
         <div class="meanu-sec">
             <div class="logo">
-                <img src="Logo2.jpeg" alt="Logo">
+                <img src="../Assets/Logo2.jpeg" alt="Logo">
             </div>
             <div class="dropdown">
                 <button class="dropbtn"></button>
                 <div class="dropdown-content">
-                    <a href="Home.html"><i class="fas fa-home"></i>Home</a>
-                    <a href="NewProduct.html"><i class="fas fa-pills"></i>Products</a>
-                    <a href="Cart.html"><i class="fas fa-shopping-cart"></i>Cart</a>
-                    <a href="NewInvoice.html"><i class="fas fa-file-invoice"></i>Invoice</a>
-                    <a href="NewCheckout.html"><i class="fas fa-credit-card"></i>Checkout</a>
-                    <a href="NewDashboard.html"><i class="fas fa-chart-line"></i>Dashboard</a>
-                    <a href="NewAbout.html"><i class="fas fa-info-circle"></i>About Us</a>
-                    <a href="newlogin.html"><i class="fas fa-user-plus"></i>Sign Up</a>
+                    <a href="../Codes/Home.html"><i class="fas fa-home"></i>Home</a>
+                    <a href="../Codes/NewProduct.html"><i class="fas fa-pills"></i>Products</a>
+                    <a href="../Codes/Cart.html"><i class="fas fa-shopping-cart"></i>Cart</a>
+                    <a href="../Codes/NewInvoice.html"><i class="fas fa-file-invoice"></i>Invoice</a>
+                    <a href="../Codes/NewCheckout.html"><i class="fas fa-credit-card"></i>Checkout</a>
+                    <a href="../Codes/NewDashboard.html"><i class="fas fa-chart-line"></i>Dashboard</a>
+                    <a href="../Codes/NewAbout.html"><i class="fas fa-info-circle"></i>About Us</a>
+                    <a href="../Codes/newlogin.html"><i class="fas fa-user-plus"></i>Sign Up</a>
                 </div>
             </div>
         </div>
@@ -403,10 +403,10 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h5>Quick Links</h5>
-                <a href="Home.html">Home</a>
-                <a href="NewProduct.html">Products</a>
-                <a href="NewAbout.html">About Us</a>
-                <a href="newlogin.html">Login</a>
+                <a href="../Codes/Home.html">Home</a>
+                <a href="../Codes/NewProduct.html">Products</a>
+                <a href="../Codes/NewAbout.html">About Us</a>
+                <a href="../Codes/newlogin.html">Login</a>
             </div>
             
             <div class="footer-section">
@@ -507,37 +507,6 @@
                 order.subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
                 order.tax = order.subtotal * 0.15;
                 order.total = order.subtotal + order.tax;
-
-                        
-                
-                // Create invoice object
-                const invoiceData = {
-                    companyName: "VitalHealthHub",
-                    date: new Date().toLocaleDateString(),
-                    invoiceNumber: "INV-" + Date.now(),
-                    trn: document.getElementById("trn").value,
-                    shippingInfo: {
-                        name: document.getElementById("name").value,
-                        address: document.getElementById("address").value,
-                        email: document.getElementById("email").value,
-                        phone: document.getElementById("phone").value
-                    },
-                        items: [...cart],
-                        subtotal: subtotal,
-                        taxes: 0.15, // 15% tax
-                        total: total,
-                        status: "Paid"
-                    };
-    
-                  // Save invoice to localStorage
-                  localStorage.setItem("latestInvoice", JSON.stringify(invoiceData));
-                  
-                  // Clear cart
-                  localStorage.removeItem("cart");
-                  
-                  // Redirect to invoice page
-                  window.location.href = "NewInvoice.html";
-              });
                 
                 // Save order to localStorage
                 let orders = JSON.parse(localStorage.getItem("orders")) || [];
