@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Abbey-Gayle Haughton | Website Portfolio">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="../Assets/Logo2.jpeg">
+    <title>Error | VitalHealthHub</title>
+    <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Garamond", sans-serif;
+      background-color: #C6EDC3;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    /* Header */
+    .header {
+       background-color: #E4FDE1;
+       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+       position: sticky;
+       top: 0;
+       z-index: 100;
+    }
+    .meanu-sec {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo img {
+       width: 140px;
+       height: auto;
+       border-radius: 5px;
+       transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+       transform: scale(1.05);
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .page-title {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .page-title h1 {
+      font-size: 3rem;
+      color: #000000;
+      font-family: "Garamond", serif;
+      position: relative;
+      display: inline-block;
+    }
+
+    .page-title h1:after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #4CAF50;
+      margin: 15px auto;
+    }
+    
+    .locked-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .locked-container p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .locked-container a.button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #dc3545;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      font-size: 16px;
+    }
+    .locked-container a.button:hover {
+      background-color: #a71d2a;
+    }
+    /* Footer */
+    footer {
+      background-color: #d6f9d6;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-section h5 {
+      color: #333;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-section h5:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: #4CAF50;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #4CAF50;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px 0 10px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .copyright p {
+      color: #333;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="header">
+    <div class="meanu-sec">
+      <div class="logo">
+        <img src="../Assets/Logo2.jpeg" alt="Logo">
+      </div>
+    </header>
+
+ 
+    <div class="page-title">
+        <h1>Login to Pharmacy</h1>
+    </div>
+
+    <div class="locked-container">
+      <h2>Your account has been locked.</h2>
+      <p>
+        Due to too many failed login attempts, your account has been locked.<br>
+        Please contact customer support or try resetting your password.
+      </p>
+      <a href="ResetPassword.html" class="button">Reset Password</a>
+      <br><br>
+      <a href="../Codes/newlogin.html" class="button">Back to Login</a>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h5>Quick Links</h5>
+            <a href="../Codes/Home.html">Home</a>
+            <a href="../Codes/NewProduct.html">Products</a>
+            <a href="../Codes/About.html">About Us</a>
+            <a href="../Codes/newlogin.html">Login</a>
+        </div>
+        
+        <div class="footer-section">
+            <h5>Contact Us</h5>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Health St, Kingston, Jamaica</p>
+            <p><i class="fas fa-phone"></i> (876) 555-1234</p>
+            <p><i class="fas fa-envelope"></i> info@vitalhealthhub.com</p>
+        </div>
+        
+        <div class="footer-section">
+            <h5>Follow Us</h5>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Abbey-Gayle Haughton. All rights reserved</p>
+    </div>
+</footer>
+</body>
+</html>

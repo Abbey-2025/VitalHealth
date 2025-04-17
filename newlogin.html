@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Abbey-Gayle Haughton | Website Portfolio">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="../Assets/Logo2.jpeg">
+    <title>Login | VitalHealthHub</title>
+    <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Garamond", sans-serif;
+      background-color: #C6EDC3;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    /* Header */
+    .header {
+       background-color: #E4FDE1;
+       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+       position: sticky;
+       top: 0;
+       z-index: 100;
+    }
+    .meanu-sec {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo img {
+       width: 140px;
+       height: auto;
+       border-radius: 5px;
+       transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+       transform: scale(1.05);
+    }
+    
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .page-title {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .page-title h1 {
+      font-size: 3rem;
+      color: #000000;
+      font-family: "Garamond", serif;
+      position: relative;
+      display: inline-block;
+    }
+
+    .page-title h1:after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: #4CAF50;
+      margin: 15px auto;
+    }
+    /* Login Form Container */
+    .login-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .login-container label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1.5rem;
+    }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .login-container .error {
+      color: rgb(170, 82, 82);
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+    .login-container .form-actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .login-container .form-actions button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 0 10px;
+    }
+    .login-container .form-actions button#loginBtn {
+      background-color: #009900;
+      color: #fff;
+    }
+    .login-container .form-actions button#cancelBtn {
+      background-color: #dc3545;
+      color: #fff;
+    }
+    .login-container .reset-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+    .login-container .reset-link a {
+      color: #0066cc;
+    }
+    .login-container .registration-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+    .login-container .registration-link a {
+      color: #0066cc;
+    }
+    /* Footer */
+    footer {
+      background-color: #d6f9d6;
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-section h5 {
+      color: #333;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-section h5:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: #4CAF50;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #4CAF50;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px 0 10px;
+      margin-top: 30px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .copyright p {
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+  </style>
+</head>
+<body>
+ 
+  <header class="header">
+    <div class="meanu-sec">
+      <div class="logo">
+        <img src="../Assets/Logo2.jpeg" alt="Logo">
+      </div>
+    </header>
+
+
+    <div class="page-title">
+        <h1>Login to Pharmacy</h1>
+    </div>
+
+        <div class="login-container">
+        <form id="loginForm" novalidate>
+        <label for="trn">Tax Registration Number (TRN)</label>
+        <input type="text" id="trn" name="trn" pattern="\d{3}-\d{3}-\d{3}" placeholder="000-000-000" required>
+        <div class="error" id="trnError"></div>
+        <!-- Password Field -->
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error" id="passwordError"></div>
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" id="loginBtn">Login</button>
+          <button type="button" id="cancelBtn">Cancel</button>
+        </div>
+        <div class="reset-link">
+          <a href="#" id="resetPasswordLink">Reset Password?</a>
+        </div>
+        <div class="registration-link">
+          <a href="../Codes/Newregistration.html" id="registration">New User?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h5>Quick Links</h5>
+            <a href="../Codes/Home.html">Home</a>
+            <a href="../Codes/NewProduct.html">Products</a>
+            <a href="../Codes/NewAbout.html">About Us</a>
+            <a href="../Codes/newlogin.html">Login</a>
+        </div>
+        
+        <div class="footer-section">
+            <h5>Contact Us</h5>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Health St, Kingston, Jamaica</p>
+            <p><i class="fas fa-phone"></i> (876) 555-1234</p>
+            <p><i class="fas fa-envelope"></i> info@vitalhealthhub.com</p>
+        </div>
+        
+        <div class="footer-section">
+            <h5>Follow Us</h5>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Abbey-Gayle Haughton,Niyazi Daley,Steve-Ann Wilson,Venice Leachman . All rights reserved</p>
+    </div>
+</footer>
+
+  <script>
+    
+    let loginAttempts = 0;
+    const maxAttempts = 3;
+
+ 
+    function getRegistrationData() {
+      return JSON.parse(localStorage.getItem("RegistrationData")) || [];
+    }
+
+   
+    function clearLoginForm() {
+      console.log("Cancel button clicked: clearing form.");
+      document.getElementById("loginForm").reset();
+      document.getElementById("trnError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+    }
+
+   
+    function processLogin() {
+      console.log("Login button clicked.");
+      const trnInput = document.getElementById("trn").value.trim();
+      const passwordInput = document.getElementById("password").value;
+      let found = false;
+      const regData = getRegistrationData();
+
+     
+      if (!trnInput || !passwordInput) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+           for (let record of regData) {
+        if (record.trn === trnInput && record.password === passwordInput) {
+          found = true;
+          break;
+        }
+      }
+
+      if (found) {
+        alert("Login successful! Redirecting to product catalog.");
+        window.location.href = "../Codes/Home.html";  
+      } else {
+        loginAttempts++;
+        if (loginAttempts >= maxAttempts) {
+          alert("Account locked due to too many failed attempts.");
+          window.location.href = "../Codes/Error.html";  
+        } else {
+          alert("Invalid credentials. You have " + (maxAttempts - loginAttempts) + " attempt(s) remaining.");
+        }
+      }
+    }
+
+   
+    function resetPassword() {
+      const trnToReset = prompt("Enter your Tax Registration Number (TRN) for password reset (format: 000-000-000):");
+      if (!trnToReset) return;
+      const regData = getRegistrationData();
+      const userRecord = regData.find(record => record.trn === trnToReset.trim());
+      if (userRecord) {
+        const newPassword = prompt("Enter your new password (min 8 characters):");
+        if (newPassword && newPassword.length >= 8) {
+          userRecord.password = newPassword;
+          localStorage.setItem("RegistrationData", JSON.stringify(regData));
+          alert("Password has been reset successfully.");
+        } else {
+          alert("Password reset failed. New password must be at least 8 characters long.");
+        }
+      } else {
+        alert("No account found with that TRN.");
+      }
+    }
+
+    // Attach event listeners after DOM load
+    document.getElementById("loginBtn").addEventListener("click", processLogin);
+    document.getElementById("cancelBtn").addEventListener("click", clearLoginForm);
+    document.getElementById("resetPasswordLink").addEventListener("click", function(event) {
+      event.preventDefault();
+      resetPassword();
+    });
+  </script>
+</body>
+</html>

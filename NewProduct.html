@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Abbey-Gayle Haughton | Website Portfolio">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="../Assets/Logo2.jpeg">
+    <title>Our Products | VitalHealthHub</title>
+
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Garamond", sans-serif;
+            background-color: #C6EDC3;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            background-color: #E4FDE1;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .meanu-sec {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            width: 140px;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #af4c9b;
+            color: transparent;
+            padding: 15px;
+            font-size: 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .dropbtn::before {
+            content: "☰";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 28px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 14px 18px;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #eee;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #4CAF50;
+            color: white;
+            padding-left: 22px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+            transform: rotate(90deg);
+        }
+
+        .dropdown:hover .dropbtn::before {
+            content: "✕";
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            color: #000000;
+            font-family: "Garamond", serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title h1:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #4CAF50;
+            margin: 15px auto;
+        }
+
+        /* Products Grid */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-info .price {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background-color: #3e8e41;
+            transform: scale(1.05);
+        }
+
+        /* Cart Button */
+        .cart-btn-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+        }
+
+        .cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-btn:hover {
+            background-color: #3e8e41;
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #d6f9d6;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h5 {
+            color: #333;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h5:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #4CAF50;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #4CAF50;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px 0 10px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .copyright p {
+            color: #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .products-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .page-title h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cart-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification.hide {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="meanu-sec">
+            <div class="logo">
+                <img src="../Assets/Logo2.jpeg" alt="Logo">
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn"></button>
+                <div class="dropdown-content">
+                    <a href="../Codes/Home.html"><i class="fas fa-home"></i>Home</a></li>
+                    <a href="../Codes/NewProduct.html"><i class="fas fa-pills"></i>Products</a></li>
+                    <a href="../Codes/Cart.html"><i class="fas fa-shopping-cart"></i>Cart</a></li>
+                    <a href="../Codes/NewInvoice.html"><i class="fas fa-file-invoice"></i>Invoice</a></li>
+                    <a href="../Codes/NewCheckout.html"><i class="fas fa-credit-card"></i>Checkout</a></li>
+                    <a href="../Codes/NewDashboard.html"><i class="fas fa-chart-line"></i>Dashboard</a></li>
+                    <a href="../Codes/NewAbout.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    <a href="../Codes/newlogin.html"><i class="fas fa-user-plus"></i>Sign Up</a></li>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-title">
+            <h1>Our Products</h1>
+        </div>
+
+        <div class="products-container">
+            <!-- Product 1 -->
+            <div class="product" id="product1">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin B1 (Thiamine).jpg" alt="Vitamin B1 (Thiamin)">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B1 (Thiamin)</h3>
+                    <div class="price">$1,200</div>
+                    <p>Supports energy production and brain function</p>
+                    <button class="add-to-cart" onclick="addToCart(1, 1200, 'Vitamin B1 (Thiamin)', 'Vitamin B1 (Thiamine).jpg', 'Supports energy production and brain function')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product" id="product2">
+                <div class="product-img-container">
+                    <img src="../Assets/vitamin b-2.jpeg" alt="Vitamin B2 (Riboflavin)">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B2 (Riboflavin)</h3>
+                    <div class="price">$700</div>
+                    <p>Helps convert food into energy and supports cellular function</p>
+                    <button class="add-to-cart" onclick="addToCart(2, 700, 'Vitamin B2 (Riboflavin)', 'vitamin b-2.jpeg', 'Helps convert food into energy and supports cellular function')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product" id="product3">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin B3 (Niacin).jpg" alt="Vitamin B3 (Niacin)">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B3 (Niacin)</h3>
+                    <div class="price">$800</div>
+                    <p>Improves cholesterol levels and boosts brain health</p>
+                    <button class="addToCart" onclick="addToCart(3, 800, 'Vitamin B3 (Niacin)', 'Vitamin B3 (Niacin).jpg', 'Improves cholesterol levels and boosts brain health')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product" id="product4">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin B5 (Pantothenic Acid).jpg" alt="Vitamin B5 (Pantothenic Acid)">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B5 (Pantothenic Acid)</h3>
+                    <div class="price">$1,700</div>
+                    <p>Aids in the production of hormones and energy</p>
+                    <button class="add-to-cart" onclick="addToCart(4, 1700, 'Vitamin B5 (Pantothenic Acid)', 'Vitamin B5 (Pantothenic Acid).jpg', 'Aids in the production of hormones and energy')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product" id="product5">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin B6.jpeg" alt="Vitamin B6">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B6</h3>
+                    <div class="price">$1,300</div>
+                    <p>Supports immune system health and neurotransmitter production</p>
+                    <button class="add-to-cart" onclick="addToCart(5, 1300, 'Vitamin B6', 'Vitamin B6.jpeg', 'Supports immune system health and neurotransmitter production')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product" id="product6">
+                <div class="product-img-container">
+                    <img src="../Assets/biotin.jpeg" alt="Vitamin B7 (Biotin)">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B7 (Biotin)</h3>
+                    <div class="price">$1,400</div>
+                    <p>Promotes healthy hair, skin, and nails; aids in food metabolism</p>
+                    <button class="add-to-cart" onclick="addToCart(6, 1400, 'Vitamin B7 (Biotin)', 'biotin.jpeg', 'Promotes healthy hair, skin, and nails; aids in food metabolism')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product" id="product7">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin B9 (Folic Acid).jpg" alt="Vitamin B9 (Folic Acid)">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B9 (Folic Acid)</h3>
+                    <div class="price">$920</div>
+                    <p>Essential for DNA synthesis and cell growth</p>
+                    <button class="add-to-cart" onclick="addToCart(7, 920, 'Vitamin B9 (Folic Acid)', 'Vitamin B9 (Folic Acid).jpg', 'Essential for DNA synthesis and cell growth')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product" id="product8">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin B12.jpg" alt="Vitamin B12">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin B12</h3>
+                    <div class="price">$1,550</div>
+                    <p>Vital for red blood cell formation and neurological function</p>
+                    <button class="add-to-cart" onclick="addToCart(8, 1550, 'Vitamin B12', 'Vitamin B12.jpg', 'Vital for red blood cell formation and neurological function')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product" id="product9">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin C.jpeg" alt="Vitamin C">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin C</h3>
+                    <div class="price">$1,000</div>
+                    <p>Boosts immunity, reduces fatigue, and enhances skin health</p>
+                    <button class="add-to-cart" onclick="addToCart(9, 1000, 'Vitamin C', 'Vitamin C.jpeg', 'Boosts immunity, reduces fatigue, and enhances skin health')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product" id="product10">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin D.jpeg" alt="Vitamin D">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin D</h3>
+                    <div class="price">$650</div>
+                    <p>Strengthens bones, boosts immunity, and supports brain function</p>
+                    <button class="add-to-cart" onclick="addToCart(10, 650, 'Vitamin D', 'Vitamin D.jpeg', 'Strengthens bones, boosts immunity, and supports brain function')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product" id="product11">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin E.jpeg" alt="Vitamin E">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin E</h3>
+                    <div class="price">$1,070</div>
+                    <p>Acts as an antioxidant to protect cells from damage</p>
+                    <button class="add-to-cart" onclick="addToCart(11, 1070, 'Vitamin E', 'Vitamin E.jpeg', 'Acts as an antioxidant to protect cells from damage')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product" id="product12">
+                <div class="product-img-container">
+                    <img src="../Assets/Vitamin A.jpeg" alt="Vitamin A">
+                </div>
+                <div class="product-info">
+                    <h3>Vitamin A</h3>
+                    <div class="price">$900</div>
+                    <p>Supports vision, skin health, and immune function</p>
+                    <button class="add-to-cart" onclick="addToCart(12, 900, 'Vitamin A', 'Vitamin A.jpeg', 'Supports vision, skin health, and immune function')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product" id="product13">
+                <div class="product-img-container">
+                    <img src="../Assets/Omega-3 Fatty Acids.jpeg" alt="Omega-3 Fatty Acids">
+                </div>
+                <div class="product-info">
+                    <h3>Omega-3 Fatty Acids</h3>
+                    <div class="price">$1,500</div>
+                    <p>Enhances brain health, memory, and focus</p>
+                    <button class="add-to-cart" onclick="addToCart(13, 1500, 'Omega-3 Fatty Acids', 'Omega-3 Fatty Acids.jpeg', 'Enhances brain health, memory, and focus')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product" id="product14">
+                <div class="product-img-container">
+                    <img src="../Assets/Magnesium.jpg" alt="Magnesium">
+                </div>
+                <div class="product-info">
+                    <h3>Magnesium</h3>
+                    <div class="price">$1,200</div>
+                    <p>Reduces stress, improves sleep, and supports muscle function</p>
+                    <button class="add-to-cart" onclick="addToCart(14, 1200, 'Magnesium', 'Magnesium.jpg', 'Reduces stress, improves sleep, and supports muscle function')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="product" id="product15">
+                <div class="product-img-container">
+                    <img src="../Assets/Zinc.jpeg" alt="Zinc">
+                </div>
+                <div class="product-info">
+                    <h3>Zinc</h3>
+                    <div class="price">$1,400</div>
+                    <p>Strengthens the immune system and aids in wound healing</p>
+                    <button class="add-to-cart" onclick="addToCart(15, 1400, 'Zinc', 'Zinc.jpeg', 'Strengthens the immune system and aids in wound healing')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="product" id="product16">
+                <div class="product-img-container">
+                    <img src="../Assets/Iron.jpeg" alt="Iron">
+                </div>
+                <div class="product-info">
+                    <h3>Iron</h3>
+                    <div class="price">$900</div>
+                    <p>Prevents fatigue by supporting oxygen transport in the blood</p>
+                    <button class="add-to-cart" onclick="addToCart(16, 900, 'Iron', 'Iron.jpeg', 'Prevents fatigue by supporting oxygen transport in the blood')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="product" id="product17">
+                <div class="product-img-container">
+                    <img src="../Assets/Calcium.jpeg" alt="Calcium">
+                </div>
+                <div class="product-info">
+                    <h3>Calcium</h3>
+                    <div class="price">$650</div>
+                    <p>Essential for strong bones and teeth</p>
+                    <button class="add-to-cart" onclick="addToCart(17, 650, 'Calcium', 'Calcium.jpeg', 'Essential for strong bones and teeth')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product" id="product18">
+                <div class="product-img-container">
+                    <img src="../Assets/Probiotic.jpeg" alt="Probiotics">
+                </div>
+                <div class="product-info">
+                    <h3>Probiotics</h3>
+                    <div class="price">$1000</div>
+                    <p>Improve gut health and digestion</p>
+                    <button class="add-to-cart" onclick="addToCart(18, 1000, 'Probiotics', 'Probiotic.jpeg', 'Improve gut health and digestion')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="product" id="product19">
+                <div class="product-img-container">
+                    <img src="../Assets/Dailymulti.jpeg" alt="Multivitamins">
+                </div>
+                <div class="product-info">
+                    <h3>Multivitamins</h3>
+                    <div class="price">$1,150</div>
+                    <p>Provide a combination of essential nutrients for overall health</p>
+                    <button class="add-to-cart" onclick="addToCart(19, 1150, 'Multivitamins', 'Dailymulti.jpeg', 'Provide a combination of essential nutrients for overall health')">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="product" id="product20">
+                <div class="product-img-container">
+                    <img src="../Assets/Choline.jpg" alt="Choline">
+                </div>
+                <div class="product-info">
+                    <h3>Choline</h3>
+                    <div class="price">$750</div>
+                    <p>Supports brain development and memory</p>
+                    <button class="add-to-cart" onclick="addToCart(20, 750, 'Choline', 'Choline.jpg', 'Supports brain development and memory')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Cart Button -->
+        <div class="cart-btn-container">
+            <button class="cart-btn" onclick="window.location.href='Cart.html'">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // Initialize cart from localStorage if it exists
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        // Function to update cart count display
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelectorAll(".cart-count").forEach(el => {
+                el.textContent = totalItems;
+            });
+        }
+        
+        // Function to show notification
+        function showNotification(message) {
+            const notification = document.createElement("div");
+            notification.className = "notification";
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add("show");
+            }, 10);
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove("show");
+                notification.classList.add("hide");
+                
+                // Remove notification from DOM after animation completes
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+        
+        // Function to add product to cart
+        window.addToCart = function(productId, price, productName, productImage, description) {
+            const product = {
+                id: productId,
+                name: productName,
+                price: price,
+                image: productImage,
+                description: description,
+                quantity: 1
+            };
+            
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push(product);
+            }
+            
+            // Save to localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+            
+            // Update cart count and show notification
+            updateCartCount();
+            showNotification(`${productName} added to cart!`);
+        };
+        
+        // Initialize cart count on page load
+        updateCartCount();
+    </script>
+
+    <!-- footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <a href="../Codes/Home.html">Home</a>
+                <a href="../Codes/NewProduct.html">Products</a>
+                <a href="../Codes/NewAbout.html">About Us</a>
+                <a href="../Codes/newlogin.html">Login</a>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Health St, Kingston, Jamaica</p>
+                <p><i class="fas fa-phone"></i> (876) 555-1234</p>
+                <p><i class="fas fa-envelope"></i> info@vitalhealthhub.com</p>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Follow Us</h5>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Abbey-Gayle Haughton,Niyazi Daley,Steve-Ann Wilson,Venice Leachman . All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
