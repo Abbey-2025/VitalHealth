@@ -647,3 +647,166 @@ Contributors
 Niyazi Daley 
 License
 
+This is the Cart Page for VitalHealthHub, a web-based e-commerce platform specializing in healthcare products. This page allows users to view and adjust quantities, remove items and potentially apply discounts or promotional codes before proceeding to checkout. 
+
+Features
+	It's where customers can view and manage the items they've selected to purchase, adjust quantities, remove items, and potentially apply discounts or promotional codes before proceeding to checkout. 
+
+
+Installation
+1.	Creates the directory structure:
+	── js/
+     └── cart.js       
+── cart.html          
+── products.html      
+── checkout.html      
+
+2.	Creates the JavaScript file products.js in the js folder
+
+3.	Integrates cart.html based on required HTML elements
+
+4.	Structures cart data in array
+
+4.	Ensures linked HTML pages exists
+
+
+
+Usage
+	1.	Calculations:
+	•	Calculates the total price for single line items
+	•	Calculate the sum of all items in the cart
+
+	2.	Discount:
+	•	Apply a discount percentage to the cart total
+
+	3.	Cart Actions
+	•	Completely clears the shopping cart by clicking the remove all button
+	•	Exit cart by redirecting to product page
+•	Proceeds to checkout page
+
+
+Technologies Used
+	•	HTML
+	•	CSS 
+	•	JavaScript 
+	
+
+Configuration
+	•	HTML Structure Requirements
+	•	Function specific configuration (calculates total & subtotal using quantity & price)
+	•	Proceeds to checkout but applies applicable discount
+	•	Clears session by clicking remove all button 
+
+Troubleshooting
+
+Functions don’t work?
+	•	Check browser console for errors
+	•	Verify the js file is link in the HTML 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is the Dashboard Page for VitalHealthHub, a web-based e-commerce platform specializing in healthcare products. Essentially, a dashboard aggregates data from various sources and presents it in a concise, easily digestible format, making it a valuable tool for various business functions and personal use. 
+
+
+Features
+	The dashboard page is primarily used to visualize and monitor important data in a concise and easily understandable way. 
+
+
+Installation
+1.	Creates the directory:
+── dashboard/
+   	── dashboard.html          
+── css/
+└── styles.css     
+── js/
+   	   └── dashboard.js   
+
+
+2.	Creates the HTML page with a specific structure
+
+3.	Saves the products.js code in the JavaScript folder.
+
+4. Incudes HTML links
+
+5. Initializes data from the databased stored in Local Storage
+
+6. Analyses user data based on age groups and gender
+
+7. Ensures HTML page launches properly with the required data by ensuring the HTML ID’s match those referenced in JavaScript
+
+
+
+
+
+
+
+Usage
+	1.	User Analytics:
+	•	Displays total count of all registered user
+	•	Shows the average age of all the registered users
+	•	Identifies the most common gender in the user base
+	•	Gender distribution pie chart that visually breaks down male vs female users
+	•	Age group bar chart shows user distribution by age groups
+
+	2.	Invoice Management
+	•	Finds a specific users invoices using the user ID
+	•	Presents invoices in a table with requested details
+	•	Search through invoices using invoice ID	
+
+	3.	Functionality
+	•	Calculations done in real time
+	•	Uses data stored in the session
+
+
+Technologies Used
+	•	HTML
+	•	CSS 
+	•	JavaScript 
+	
+
+Configuration
+	•	Structures user objects, invoice data & registration data in an array 
+	•	Predefined format for graph & pie charts
+	•	Processes age group functions 
+	•	The JavaScript references HTML code based on existing elements
+
+
+
+
+
+
+
+
+
+Troubleshooting
+
+Chart not displaying?
+	•	Ensure chart.js is properly loaded
+	•	References HTML for existing elements
+
+Data not loading?
+	•	Check localStorage data exists
+	•	Verify data structure matches expected format
+
+Invoice lookup failing?
+	•	Confirms user is registered
+	•	Verify data parsing
+
+
+
+
+
