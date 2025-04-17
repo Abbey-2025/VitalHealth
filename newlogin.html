@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Abbey-Gayle Haughton | Website Portfolio">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/jpeg" href="../Assets/Logo2.jpeg">
+    <link rel="icon" type="image/jpeg" href="Logo2.jpeg">
     <title>Login | VitalHealthHub</title>
     <style>
     
@@ -222,7 +222,7 @@
   <header class="header">
     <div class="meanu-sec">
       <div class="logo">
-        <img src="../Assets/Logo2.jpeg" alt="Logo">
+        <img src="Logo2.jpeg" alt="Logo">
       </div>
     </header>
 
@@ -249,7 +249,7 @@
           <a href="#" id="resetPasswordLink">Reset Password?</a>
         </div>
         <div class="registration-link">
-          <a href="../Codes/Newregistration.html" id="registration">New User?</a>
+          <a href="Newregistration.html" id="registration">New User?</a>
         </div>
       </form>
     </div>
@@ -260,10 +260,10 @@
     <div class="footer-content">
         <div class="footer-section">
             <h5>Quick Links</h5>
-            <a href="../Codes/Home.html">Home</a>
-            <a href="../Codes/NewProduct.html">Products</a>
-            <a href="../Codes/NewAbout.html">About Us</a>
-            <a href="../Codes/newlogin.html">Login</a>
+            <a href="Home.html">Home</a>
+            <a href="NewProduct.html">Products</a>
+            <a href="NewAbout.html">About Us</a>
+            <a href="newlogin.html">Login</a>
         </div>
         
         <div class="footer-section">
@@ -330,12 +330,12 @@
 
       if (found) {
         alert("Login successful! Redirecting to product catalog.");
-        window.location.href = "../Codes/Home.html";  
+        window.location.href = "Home.html";  
       } else {
         loginAttempts++;
         if (loginAttempts >= maxAttempts) {
           alert("Account locked due to too many failed attempts.");
-          window.location.href = "../Codes/Error.html";  
+          window.location.href = "Error.html";  
         } else {
           alert("Invalid credentials. You have " + (maxAttempts - loginAttempts) + " attempt(s) remaining.");
         }
