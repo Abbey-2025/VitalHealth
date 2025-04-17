@@ -507,6 +507,37 @@
                 order.subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
                 order.tax = order.subtotal * 0.15;
                 order.total = order.subtotal + order.tax;
+
+                        
+                
+                // Create invoice object
+                const invoiceData = {
+                    companyName: "VitalHealthHub",
+                    date: new Date().toLocaleDateString(),
+                    invoiceNumber: "INV-" + Date.now(),
+                    trn: document.getElementById("trn").value,
+                    shippingInfo: {
+                        name: document.getElementById("name").value,
+                        address: document.getElementById("address").value,
+                        email: document.getElementById("email").value,
+                        phone: document.getElementById("phone").value
+                    },
+                        items: [...cart],
+                        subtotal: subtotal,
+                        taxes: 0.15, // 15% tax
+                        total: total,
+                        status: "Paid"
+                    };
+    
+                  // Save invoice to localStorage
+                  localStorage.setItem("latestInvoice", JSON.stringify(invoiceData));
+                  
+                  // Clear cart
+                  localStorage.removeItem("cart");
+                  
+                  // Redirect to invoice page
+                  window.location.href = "NewInvoice.html";
+              });
                 
                 // Save order to localStorage
                 let orders = JSON.parse(localStorage.getItem("orders")) || [];
